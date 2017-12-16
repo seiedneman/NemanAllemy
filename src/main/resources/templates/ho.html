@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form method="post" th:action="@{/hosein}" th:object="${abbas}">
+		<p>Please Fill Details To Register</p>
+		<input type="hidden" th:field="*{id}" /> 
+		title:<input type="text" th:field="*{title}" /><br /> author:<input
+			type="text" th:field="*{author}" /><br /> description:<input
+			type="text" th:field="*{description}" /><br />
+
+		<button type="submit">submit</button>
+	</form>
+
+
+	<table border="1">
+		<thead>
+			<td>ID</td>
+			<td>title</td>
+			<td>author</td>
+			<td>description</td>
+			<td>action</td>
+			<td>action</td>
+			
+		</thead>
+	<tbody>
+	<tr th:each="jojo : ${shahir}">
+	<td th:text="${jojo.id}"></td>
+	<td th:text="${jojo.title}"></td>
+	<td th:text="${jojo.author}"></td>
+	<td th:text="${jojo.description}"></td>
+	<td> <a th:href="@{'/delete/'+${jojo.id}}">delete</a></td>
+	<td> <a th:href="@{'/update/'+${jojo.id}}">update</a></td>
+	</tr>
+	
+	</tbody>
+
+	</table>
+</body>
+</html>
